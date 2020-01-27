@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en" class="h-100">
+<head>
+{{>header}}
+</head>
+<body class="d-flex flex-column h-100">
+{{> navheader this }}
+
+<!-- Begin page content -->
+<main role="main" class="flex-shrink-0">
+    <div class="container">
+       {{{body}}}
+    </div>
+</main>
+{{> footer this}}
+
+</body>
+</html>

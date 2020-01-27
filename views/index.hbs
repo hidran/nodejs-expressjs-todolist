@@ -1,0 +1,37 @@
+
+<h1>EXPRESS TODO LISTS</h1>
+{{#if messages}}
+    {{#each messages}}
+        <div class="alert alert-success">{{this}}</div>
+        {{/each}}
+{{/if}}
+{{#if errors}}
+    {{#each errors}}
+        <div class="alert alert-danger">{{this}}</div>
+    {{/each}}
+{{/if}}
+{{>newlist}}
+<ul  class="list-group">
+    {{#each lists}}
+        <li class="list-group-item d-flex justify-content-between align-items-center row">
+     <div class="col-md-10">
+       <a href="/lists/{{this.id}}/todos">
+           {{this.name}}
+       </a>
+            <span class="badge badge-danger badge-pill ">   {{this.dataValues.total}}</span>
+     </div>
+            <div class="col-md-2">
+            <a href="/lists/{{this.id}}/edit" class="btn btn-success" title="UPDATE LIST">
+                <i class="fa fa-pen-alt"></i>
+            </a>
+                <form method="post" name="form{{this.id}}" action="/lists/{{this.id}}" style="display: inline">
+                    <input type="hidden" name="_method" value="DELETE">
+            <button type="button" onclick="showConfirmMsg('delete list','Are you sure you want to delete this item?','form{{this.id}}')" class="btn btn-danger"  title="DELETE LIST">
+                <i class="fa fa-trash-o"></i>
+
+            </button>
+                </form>
+            </div>
+        </li>
+    {{/each}}
+</ul>
