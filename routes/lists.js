@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
         const {q} = req.query;
         const {id} = req.session.user;
         const result = await list.getLists({q, userId: id});
-        res.render('index', {
+         res.render('index', {
                 lists: result,
                 showBackButton: false,
                 user: req.session.user,
